@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #efefef;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+
+  .holder {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+
+  .controls {
+    display: flex;
+    padding: 2em 0;
+
+    .input-indicator {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      font-size: 1.2em;
+      font-weight: 500;
+      background-color: #cee7e5;
+      border-radius: 0.25em 0 0 0.25em;
+      user-select: none;
+    }
+    input[type="number"].total {
+      flex-grow: 1;
+      padding: 0.5em;
+      font-size: 1.15em;
+      outline: none;
+      border: 1px solid rgb(223, 223, 223);
+      border-radius: 0 0.25em 0.25em 0;
+    }
+  }
+  .calculator {
+    // height: 300px;
+    // width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    // This will be it's own component
+    .payment {
+      display: flex;
+      padding: 1em;
+      background-color: #fff;
+      border-radius: 0.25em;
+      box-shadow: 0px 12px 12px -13px rgba(0, 0, 0, 0.15);
+
+      .details {
+        flex-grow: 1;
+
+        .date {
+          padding-bottom: 0.5em;
+        }
+        .sequence {
+          color: rgb(177, 177, 177);
+          font-size: 0.75em;
+        }
+      }
+      .amount {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        font-weight: 600;
+        font-size: 0.9em;
+      }
+    }
+  }
+}
