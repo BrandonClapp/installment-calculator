@@ -1,0 +1,12 @@
+<ng-container *ngIf="payments.length > 0">
+  <app-payment
+    *ngFor="let payment of payments"
+    [title]="payment.title"
+    [subtitle]="payment.subtitle"
+    [amount]="payment.amount"
+  ></app-payment>
+</ng-container>
+
+<!-- <ng-template #placeholder>
+  <div class="placeholder"></div>
+</ng-template> -->
