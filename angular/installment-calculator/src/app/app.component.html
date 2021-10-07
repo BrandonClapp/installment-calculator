@@ -13,14 +13,19 @@
         placeholder="Total"
       />
     </div>
-    <div *ngIf="true" class="calculator">
-      <div *ngFor="let payment of [0, 1, 2, 3]" class="payment">
-        <div class="details">
-          <div class="date">Jan 24, 2020</div>
-          <div class="sequence">First payment</div>
-        </div>
-        <div class="amount">$23.50</div>
-      </div>
+    <div class="calculator">
+      <ng-container *ngIf="payments.length > 0; else placeholder">
+        <app-payment
+          *ngFor="let payment of payments"
+          [title]="payment.title"
+          [subtitle]="payment.subtitle"
+          [amount]="payment.amount"
+        ></app-payment>
+      </ng-container>
+
+      <ng-template #placeholder>
+        <div class="placeholder"></div>
+      </ng-template>
     </div>
   </div>
 </div>
