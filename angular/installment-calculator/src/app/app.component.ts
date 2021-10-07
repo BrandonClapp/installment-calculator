@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Installment Calculator';
+  submitTotal(total: number) {
+    // todo: dispatch TotalSubmitted action
+    console.log('event', total);
+  }
 }

@@ -17,7 +17,7 @@
     display: flex;
     padding: 2em 0;
 
-    .input-indicator {
+    .currency-indicator {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -38,8 +38,6 @@
     }
   }
   .calculator {
-    // height: 300px;
-    // width: 300px;
     display: flex;
     flex-direction: column;
     gap: 0.5em;

@@ -1,8 +1,11 @@
 <div class="container">
   <div class="holder">
     <div class="controls">
-      <div class="input-indicator">$</div>
+      <div class="currency-indicator">$</div>
+      <!--TODO: Reactive forms on this for validation of 2 decimals-->
       <input
+        #total
+        (keyup.enter)="submitTotal(+total.value)"
         class="total"
         type="number"
         min="1"
@@ -10,18 +13,11 @@
         placeholder="Total"
       />
     </div>
-    <div class="calculator">
-      <div class="payment">
+    <div *ngIf="true" class="calculator">
+      <div *ngFor="let payment of [0, 1, 2, 3]" class="payment">
         <div class="details">
           <div class="date">Jan 24, 2020</div>
           <div class="sequence">First payment</div>
-        </div>
-        <div class="amount">$23.50</div>
-      </div>
-      <div class="payment">
-        <div class="details">
-          <div class="date">Feb 7, 2020</div>
-          <div class="sequence">Second payment</div>
         </div>
         <div class="amount">$23.50</div>
       </div>
