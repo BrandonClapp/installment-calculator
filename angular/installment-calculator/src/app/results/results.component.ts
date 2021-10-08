@@ -7,5 +7,6 @@ import { PaymentInput } from './models/PaymentInput';
   styleUrls: ['./results.component.scss'],
 })
 export class ResultsComponent {
-  @Input() payments: PaymentInput[] | null = [];
+  @Input() payments: PaymentInput[] = [];
+  @Input() loading: boolean = false;
 }

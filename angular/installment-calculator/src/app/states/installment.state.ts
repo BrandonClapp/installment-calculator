@@ -24,26 +24,40 @@ export class InstallmentState {
     return state.payments;
   }
 
+  @Selector()
+  static loading(state: InstallmentModel): boolean {
+    return state.loading;
+  }
+
   @Action(SubmitTotal)
   submitAction(context: StateContext<InstallmentModel>, action: SubmitTotal) {
-    context.setState(state => {
-      // todo: floating point math...
-      const payment = action.total / 4;
-      const paymentDates = this.paymentService.calculatePaymentDates(4);
+    context.patchState({
+      loading: true,
+    });
 
-      const payments = paymentDates.map((date, index) => {
+    // TODO: Return an observable here with loading and delay
+
+    setTimeout(() => {
+      context.setState(state => {
+        // todo: floating point math...
+
+        const payment = action.total / 4;
+        const paymentDates = this.paymentService.calculatePaymentDates(4);
+
+        const payments = paymentDates.map((date, index) => {
+          return {
+            date: date,
+            paymentNumber: index + 1,
+            amount: payment,
+          };
+        });
+        // toggle loading, do calculation, add delay, set state payments, toggle loading
         return {
-          date: date,
-          paymentNumber: index + 1,
-          amount: payment,
+          ...state,
+          loading: false,
+          payments,
         };
       });
-      // toggle loading, do calculation, add delay, set state payments, toggle loading
-      return {
-        ...state,
-        payments,
-      };
-    });
-    console.log('Sumbit Total Fired', action.total);
+    }, 1000);
   }
 }

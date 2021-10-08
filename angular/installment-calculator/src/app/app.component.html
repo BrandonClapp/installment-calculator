@@ -14,7 +14,10 @@
       />
     </div>
     <div class="calculator">
-      <app-results [payments]="payments$ | async"></app-results>
+      <app-results
+        [loading]="isLoading$ | async"
+        [payments]="payments$ | async"
+      ></app-results>
     </div>
   </div>
 </div>
