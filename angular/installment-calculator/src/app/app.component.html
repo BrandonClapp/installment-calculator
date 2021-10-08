@@ -1,16 +1,7 @@
 <div class="container">
   <div class="holder">
     <div class="controls">
-      <div class="currency-indicator">$</div>
-      <input
-        #total
-        (keyup.enter)="submitTotal(+total.value)"
-        class="total"
-        type="number"
-        min="1"
-        step="any"
-        placeholder="Total"
-      />
+      <app-controls (onSubmit)="totalSubmitted($event)"></app-controls>
     </div>
     <div class="calculator">
       <app-results [payments]="payments$ | async"></app-results>

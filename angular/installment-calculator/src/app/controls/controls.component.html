@@ -1,0 +1,10 @@
+<div class="currency">$</div>
+<input
+  #total
+  (keyup.enter)="submitTotal(+total.value)"
+  class="total"
+  type="number"
+  min="1"
+  step="any"
+  placeholder="Total"
+/>

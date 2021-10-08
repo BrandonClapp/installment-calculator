@@ -1,0 +1,33 @@
+$border: #dfdfdf;
+$primary: #1cb3a6;
+$text: #fff;
+
+:host {
+  display: flex;
+  padding: 2em 0;
+}
+
+.currency {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: $primary;
+  color: $text;
+  border-radius: 0.25em 0 0 0.25em;
+  border-top: 1px solid $border;
+  border-left: 1px solid $border;
+  border-bottom: 1px solid $border;
+  user-select: none;
+}
+
+input[type='number'].total {
+  flex-grow: 1;
+  padding: 0.5em;
+  font-size: 1.15em;
+  outline: none;
+  border: 1px solid $border;
+  border-radius: 0 0.25em 0.25em 0;
+}

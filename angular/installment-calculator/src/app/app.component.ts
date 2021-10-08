@@ -33,7 +33,7 @@ export class AppComponent {
     })
   );
 
-  submitTotal(total: number) {
+  totalSubmitted(total: number) {
     this.store.dispatch(new SubmitTotal(total));
   }
 }
