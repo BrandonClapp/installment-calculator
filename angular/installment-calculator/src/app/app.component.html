@@ -14,7 +14,7 @@
       />
     </div>
     <div class="calculator">
-      <app-results [payments]="payments"></app-results>
+      <app-results [payments]="payments$ | async"></app-results>
     </div>
   </div>
 </div>

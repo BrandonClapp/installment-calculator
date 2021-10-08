@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { PaymentInput } from './results/models/PaymentInput';
+import { SubmitTotal } from './states/installment.actions';
+import { InstallmentState } from './states/installment.state';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -6,20 +11,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  // todo: make type for this
-  payments2 = [
-    { title: 'Jan 24, 2020', subtitle: 'First payment', amount: 23.5 },
-    { title: 'Feb 07, 2020', subtitle: 'Second payment', amount: 23.5 },
-    { title: 'Feb 21, 2020', subtitle: 'Third payment', amount: 23.54 },
-    { title: 'Mar 06, 2020', subtitle: 'Fourth payment', amount: 23.5 },
-  ];
+  payments$ = this.store.select(InstallmentState.payments).pipe(
+    tap((payments) => {
+      console.log('new emission', payments);
+    }),
+    map((payments) => {
+      return payments.map((payment) => {
+        // todo: LocaleProvider to detect user's region and return date formatting options.
+        return <PaymentInput>{
+          title: payment.date.toLocaleString('en-US', {
+            month: 'short',
+            day: '2-digit',
+            year: 'numeric',
+          }),
+          subtitle: payment.paymentNumber.toString(),
+          amount: payment.amount,
+        };
+      });
+    })
+  );
 
-  payments: { title: string; subtitle: string; amount: number }[] = [];
+  constructor(private store: Store) {}
 
   submitTotal(total: number) {
-    // todo: dispatch TotalSubmitted action
-    console.log('event', total);
-    if (total) this.payments = this.payments2;
-    else this.payments = [];
+    this.store.dispatch(new SubmitTotal(total));
   }
 }
