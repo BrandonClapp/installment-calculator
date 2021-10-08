@@ -8,5 +8,4 @@ import { PaymentInput } from './models/PaymentInput';
 })
 export class ResultsComponent {
   @Input() payments: PaymentInput[] = [];
-  @Input() loading: boolean = false;
 }

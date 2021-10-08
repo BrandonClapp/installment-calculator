@@ -2,7 +2,6 @@
   <div class="holder">
     <div class="controls">
       <div class="currency-indicator">$</div>
-      <!--TODO: Reactive forms on this for validation of 2 decimals-->
       <input
         #total
         (keyup.enter)="submitTotal(+total.value)"
@@ -14,10 +13,7 @@
       />
     </div>
     <div class="calculator">
-      <app-results
-        [loading]="isLoading$ | async"
-        [payments]="payments$ | async"
-      ></app-results>
+      <app-results [payments]="payments$ | async"></app-results>
     </div>
   </div>
 </div>

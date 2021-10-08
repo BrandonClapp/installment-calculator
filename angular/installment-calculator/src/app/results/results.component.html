@@ -1,4 +1,3 @@
-Loading: {{ loading }}
 <ng-container *ngIf="payments && payments.length > 0">
   <app-payment
     *ngFor="let payment of payments"
@@ -7,7 +6,3 @@ Loading: {{ loading }}
     [amount]="payment.amount"
   ></app-payment>
 </ng-container>
-
-<!-- <ng-template #placeholder>
-  <div class="placeholder"></div>
-</ng-template> -->

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PaymentComponent } from './payment.component';
 
 describe('PaymentComponent', () => {
@@ -8,9 +7,8 @@ describe('PaymentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaymentComponent ]
-    })
-    .compileComponents();
+      declarations: [PaymentComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
