@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import Card from './card/Card';
+// import Card from './card/Card';
 import CurrencyInput from './currency-input/CurrencyInput';
 import ItemList from './item-list/ItemList';
 import PaymentCard, {
