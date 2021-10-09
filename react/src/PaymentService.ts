@@ -5,8 +5,40 @@ const PAYMENT_NAMES = new Map([
   [4, 'Fourth'],
 ]);
 
+export interface Payment {
+  date: Date;
+  sequence: number;
+  amount: number;
+}
+
+export enum Currency {
+  USD = '$',
+}
+
 export default class PaymentService {
-  public static calculatePaymentDates(
+  public static calculatePayments(total: number, payments: number): Payment[] {
+    const payment = total / payments;
+    const paymentDates = PaymentService.calculatePaymentDates(payments);
+
+    return paymentDates.map((date, index) => {
+      return {
+        date,
+        sequence: index + 1,
+        amount: payment,
+      } as Payment;
+    });
+  }
+
+  public static getPhonicName(payment: number) {
+    const name = PAYMENT_NAMES.get(payment);
+    if (!name) {
+      throw new Error(`Unable to get phonic name for ${payment}`);
+    }
+
+    return name;
+  }
+
+  private static calculatePaymentDates(
     payments: number,
     fromDate: Date = new Date()
   ): Date[] {
@@ -17,11 +49,9 @@ export default class PaymentService {
     return paymentDates;
   }
 
-  public static getPhonicName(payment: number) {
-    return PAYMENT_NAMES.get(payment);
-  }
-
   private static addDays(date: Date, days: number) {
-    return new Date(date.setDate(date.getDate() + days));
+    // Note: Copy the incoming date to prevent it from getting mutated.
+    const copy = new Date(date.getTime());
+    return new Date(copy.setDate(copy.getDate() + days));
   }
 }

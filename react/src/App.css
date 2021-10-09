@@ -33,3 +33,7 @@ body {
   flex-direction: column;
   width: 300px;
 }
+
+.payments {
+  height: 296px;
+}

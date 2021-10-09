@@ -22,7 +22,7 @@ export default function PaymentCard({
       </div>
       <div className={styles.amount}>
         {currency}
-        {amount}
+        {amount.toFixed(2)}
       </div>
     </Card>
   );
