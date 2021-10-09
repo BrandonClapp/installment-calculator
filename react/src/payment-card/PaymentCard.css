@@ -1,0 +1,20 @@
+.details {
+  flex-grow: 1;
+}
+
+.title {
+  padding-bottom: 0.5em;
+}
+
+.subtitle {
+  color: rgb(177, 177, 177);
+  font-size: 0.75em;
+}
+
+.amount {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.9em;
+}

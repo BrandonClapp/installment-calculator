@@ -1,0 +1,29 @@
+.controls {
+  display: flex;
+  padding: 1em 0;
+}
+
+.currency {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: #1cb3a6;
+  color: #fff;
+  border-radius: 0.25em 0 0 0.25em;
+  border-top: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  user-select: none;
+}
+
+input[type="number"].total {
+  flex-grow: 1;
+  padding: 0.5em;
+  font-size: 1.15em;
+  outline: none;
+  border: 1px solid #dfdfdf;
+  border-radius: 0 0.25em 0.25em 0;
+}
