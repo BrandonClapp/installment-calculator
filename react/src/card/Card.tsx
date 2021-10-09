@@ -1,5 +1,9 @@
-import "./Card.css";
+import styles from './Card.module.css';
 
-export function Card({ children }: any) {
-  return <div className="card">{children}</div>;
+export interface Props {
+  children?: JSX.Element | JSX.Element[];
+}
+
+export default function Card({ children }: Props) {
+  return <div className={styles.card}>{children}</div>;
 }

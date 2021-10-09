@@ -1,0 +1,31 @@
+.controls {
+  display: flex;
+  padding: 1em 0;
+}
+
+.currency {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  font-size: 1.2em;
+  font-weight: 600;
+  background-color: var(--primary);
+  color: var(--controls-text-color);
+  border-radius: 0.25em 0 0 0.25em;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  user-select: none;
+}
+
+input[type='number'].total {
+  flex-grow: 1;
+  padding: 0.5em;
+  font-size: 1.15em;
+  outline: none;
+  color: var(--controls-text-color);
+  background-color: var(--controls-background);
+  border: 1px solid var(--border);
+  border-radius: 0 0.25em 0.25em 0;
+}

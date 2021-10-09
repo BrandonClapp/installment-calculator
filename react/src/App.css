@@ -1,8 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+:root {
+  --background: #efefef;
+  --primary: #1cb3a6;
+  --border: #dfdfdf;
+
+  --card-background: #fff;
+
+  --controls-text-color: #000;
+  --controls-background: #fff;
+
+  --payment-card-subtitle: #666666;
+  --payment-card-text: #000;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  /* TODO: css variable for stle */
-  background-color: #efefef;
+  background-color: var(--background);
   height: 100vh;
   width: 100vw;
   justify-content: center;

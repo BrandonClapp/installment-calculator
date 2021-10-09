@@ -1,7 +1,7 @@
-import { Card } from "../card/Card";
-import "./PaymentCard.css";
+import Card from '../card/Card';
+import styles from './PaymentCard.module.css';
 
-export interface PaymentCardInput {
+export interface Props {
   title: string;
   subtitle: string;
   currency: string;
@@ -13,14 +13,14 @@ export default function PaymentCard({
   subtitle,
   currency,
   amount,
-}: PaymentCardInput) {
+}: Props) {
   return (
     <Card>
-      <div className="details">
-        <div className="title">{title}</div>
-        <div className="subtitle">{subtitle}</div>
+      <div className={styles.details}>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.subtitle}>{subtitle}</div>
       </div>
-      <div className="amount">
+      <div className={styles.amount}>
         {currency}
         {amount}
       </div>
