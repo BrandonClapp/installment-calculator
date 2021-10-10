@@ -1,6 +1,5 @@
 import './App.css';
 import { useState } from 'react';
-// import Card from './card/Card';
 import CurrencyInput from './currency-input/CurrencyInput';
 import ItemList from './item-list/ItemList';
 import PaymentCard, {
@@ -8,10 +7,6 @@ import PaymentCard, {
 } from './payment-card/PaymentCard';
 import PaymentService, { Currency } from './PaymentService';
 
-// TODO: Write unit tests for date calculations.
-// TODO: Write unit tests for payment calculations.
-// TODO: Write unit tests to ensure that payment cards have the correct dates and amounts shown.
-// TODO: Round up fractional pennies on payment calculations.
 // TODO: Add theme toggle
 
 function App() {
@@ -21,7 +16,7 @@ function App() {
 
   const calcPayments = (total: number) => {
     return PaymentService.calculatePayments(total, 4).map(payment => {
-      // TODO: We could make a date locale provider to return date formats based on currency type.
+      // TODO: Consider making a date locale provider based on currency
       return {
         title: payment.date.toLocaleString('en-US', {
           month: 'short',
@@ -62,7 +57,7 @@ function App() {
           currency={currency}
         />
         <div className="payments">
-          <ItemList components={listComponents} />
+          <ItemList>{listComponents}</ItemList>
         </div>
       </div>
     </div>

@@ -20,10 +20,7 @@ export default function PaymentCard({
         <div className={styles.title}>{title}</div>
         <div className={styles.subtitle}>{subtitle}</div>
       </div>
-      <div className={styles.amount}>
-        {currency}
-        {amount.toFixed(2)}
-      </div>
+      <div className={styles.amount}>{currency + amount.toFixed(2)}</div>
     </Card>
   );
 }

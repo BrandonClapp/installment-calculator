@@ -16,9 +16,18 @@ export enum Currency {
 }
 
 export default class PaymentService {
-  public static calculatePayments(total: number, payments: number): Payment[] {
-    const payment = total / payments;
-    const paymentDates = PaymentService.calculatePaymentDates(payments);
+  public static calculatePayments(
+    total: number,
+    payments: number,
+    fromDate: Date = new Date()
+  ): Payment[] {
+    // Assumption: 456.81 / 4 = 114.2025 => 114.21
+    // Round up to prevent fractional penny loss and keep even payments
+    const payment = Math.ceil((total / payments) * 100) / 100;
+    const paymentDates = PaymentService.calculatePaymentDates(
+      payments,
+      fromDate
+    );
 
     return paymentDates.map((date, index) => {
       return {
