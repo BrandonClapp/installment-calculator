@@ -1,13 +1,12 @@
-import './App.css';
 import { useState } from 'react';
+import './App.css';
+// import Card from './card/Card';
 import CurrencyInput from './currency-input/CurrencyInput';
 import ItemList from './item-list/ItemList';
 import PaymentCard, {
   Props as PaymentCardProps,
 } from './payment-card/PaymentCard';
 import PaymentService, { Currency } from './PaymentService';
-
-// TODO: Add theme toggle
 
 function App() {
   const [payments, setPayments] = useState<PaymentCardProps[]>([]);
@@ -17,6 +16,7 @@ function App() {
   const calcPayments = (total: number) => {
     return PaymentService.calculatePayments(total, 4).map(payment => {
       // TODO: Consider making a date locale provider based on currency
+      // to get this logic out this component.
       return {
         title: payment.date.toLocaleString('en-US', {
           month: 'short',
@@ -32,7 +32,7 @@ function App() {
 
   const handleTotalChange = (total: number) => setPayments(calcPayments(total));
 
-  const listComponents = payments.map(payment => (
+  const paymentCards = payments.map(payment => (
     <PaymentCard
       key={payment.title}
       title={payment.title}
@@ -43,11 +43,15 @@ function App() {
   ));
 
   // Item list can render any kind of element.
-  // listComponents.push(
-  //   <Card key="summary">
-  //     <div>Summary: Whatever</div>
-  //   </Card>
-  // );
+  const listComponents = [
+    // <Card key="summary">
+    //   <div>Maybe this is a heading</div>
+    // </Card>,
+    ...paymentCards,
+    // <div style={{ fontSize: '0.7em', textAlign: 'center' }}>
+    //   Maybe this is a footer
+    // </div>,
+  ];
 
   return (
     <div className="container">
